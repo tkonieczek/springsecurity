@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+    <div th:replace="fragments :: styles"/>
+</head>
+<body>
+<div th:replace="fragments :: navigator"/>
+<form class="container" th:action="@{/student}" method="post" th:object="${student}">
+   <!-- <input type="hidden" hidden readonly th:field="*{id}" th:type="text"> -->
+    <div class="row">
+        <label class="col-6" for="fName">First name:</label>
+        <input class="col-6 form-control" id="fName" type="text" th:field="*{firstName}"/>
+    </div>
+    <div class="row">
+        <label class="col-6" for="lName">Last name:</label>
+        <input class="col-6 form-control" id="lName" type="text" th:field="*{lastName}"/>
+    </div>
+    <div class="row">
+        <label class="col-6" for="indexNumber">Index number:</label>
+        <input class="col-6 form-control" id="indexNumber" type="text" th:field="*{indexNumber}"/>
+    </div>
+    <div class="row">
+        <label class="col-6" for="active">Is active:</label>
+        <input class="col-6 form-control" id="active" type="checkbox" th:field="*{active}"/>
+    </div>
+    <div class="row">
+        <label class="col-6" for="gender">Gender:</label>
+        <select class="col-6 form-control" id="gender" name="gender" th:field="*{gender}">
+            <option name="FEMALE" value="FEMALE">FEMALE</option>
+            <option name="MALE" value="MALE">MALE</option>
+        </select>
+    </div>
+    <input type="submit" class="btn btn-primary col-12 row"/>
+</form>
+<div th:replace="fragments :: footers"/>
+</body>
+</html>
